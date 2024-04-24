@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskViewerApis", "TaskViewerApis\TaskViewerApis.csproj", "{2D7FD293-F2B3-4845-B59A-73C64FCAF85B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D7FD293-F2B3-4845-B59A-73C64FCAF85B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D7FD293-F2B3-4845-B59A-73C64FCAF85B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D7FD293-F2B3-4845-B59A-73C64FCAF85B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D7FD293-F2B3-4845-B59A-73C64FCAF85B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E2FA0E1-A2DF-4446-A5F4-7E70B313CE51}
+	EndGlobalSection
+EndGlobal

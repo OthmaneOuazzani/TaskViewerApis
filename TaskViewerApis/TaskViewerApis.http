@@ -1,0 +1,22 @@
+@TaskViewerApis_HostAddress = https://localhost:7216
+
+GET {{TaskViewerApis_HostAddress}}/api/
+Accept: application/json
+
+###
+
+GET {{TaskViewerApis_HostAddress}}/api/project/Projects
+
+###
+
+GET {{TaskViewerApis_HostAddress}}/api/user/Users
+
+###
+
+GET {{TaskViewerApis_HostAddress}}/api/task/Tasks
+
+###
+
+GET {{TaskViewerApis_HostAddress}}/api/taskdetails/details
+
+###
