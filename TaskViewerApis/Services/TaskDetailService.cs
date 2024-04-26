@@ -32,6 +32,32 @@ namespace TaskViewerApis.Services
 
             return await Task.FromResult(tasksDetails);
         }
+
+        async public Task<IEnumerable<TaskDetail>> getTasksDetailByProject(string projectName)
+        {
+            return await Task.FromResult(tasksDetail.Where(t => t.ProjectName == projectName));
+        }
+
+  
+
+    async public Task<IEnumerable<TaskDetail>> getTasksDetailByFatherTask(string fatherTaskName)
+        {
+            return await Task.FromResult(tasksDetail.Where(t => t.FatherTaskName == fatherTaskName));
+        }
+
+        async public Task<TaskDetail> getTasksDetailById(string detailId)
+        {
+            return await Task.FromResult(tasksDetail.FirstOrDefault(t => t.PlmId == detailId));
+        }
+
+        async public Task<IEnumerable<TaskDetail>> getTasksDetailByRequestedBy(string userId)
+        {
+            return await Task.Run(() =>
+            {
+                var tasksDetailByRequestedBy = tasksDetail.Where(t => t.RequestedBy == userId);
+                return (IEnumerable<TaskDetail>)tasksDetailByRequestedBy;
+            });
+        }
     }
 
     public class TaskDetailServiceFactory
