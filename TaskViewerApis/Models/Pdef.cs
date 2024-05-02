@@ -1,0 +1,74 @@
+﻿namespace TaskViewerApis.Models
+{
+    public class Pdef
+    {
+        public string ProjectName { get; set; }
+        public int LocalIndex { get; set; }
+        public string PlmId { get; set; }
+        public string LoadedCurrValue { get; set; }
+        public string LoadedIntmValue { get; set; }
+        public string LoadedRefValue { get; set; }
+        public string LoadedHistory { get; set; }
+        public string LockFlag { get; set; }
+        public DateTime LockDate { get; set; }
+        public string LockUser { get; set; }
+        public string Owner { get; set; }
+        public string PsaDeadline { get; set; }
+        public string Color { get; set; }
+        public string GbomMaturity { get; set; }
+        public int Quantity { get; set; }
+        public decimal MassEstimatedCurrValue { get; set; }
+        public decimal MassEstimatedIntmValue { get; set; }
+        public decimal MassEstimatedRefValue { get; set; }
+        public string MassEstimatedHistory { get; set; }
+        public string MassType { get; set; }
+        public string Macsi { get; set; }
+        public string DesignerPrefered { get; set; }
+        public string Avancement { get; set; }
+        public string Pdd { get; set; }
+        public string Prea { get; set; }
+        public string Tasks { get; set; }
+        public int Flag { get; set; }
+        public string ErrorsCurrValue { get; set; }
+        public string ErrorsIntmValue { get; set; }
+        public string ErrorsRefValue { get; set; }
+        public string ErrorsHistory { get; set; }
+        public bool BelongsToPConfCurrValue { get; set; }
+        public bool BelongsToPConfIntmValue { get; set; }
+        public bool BelongsToPConfRefValue { get; set; }
+        public bool BelongsToPConfHistory { get; set; }
+        public string History { get; set; }
+        public string Applicability { get; set; }
+        public long CountOfUses { get; set; }
+        public string DecPsa { get; set; }
+        public string DesignationEn { get; set; }
+        public string DesignationFr { get; set; }
+        public string RefPsa { get; set; }
+        public string State { get; set; }
+        public bool Tokill { get; set; }
+        public string BelongsToContext { get; set; }
+        public string ConfigurationContextes { get; set; }
+        public string HighestRevision { get; set; }
+        public string Pas { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime LastModifAt { get; set; }
+        public bool KpiCalled { get; set; }
+        public string LastTouch { get; set; }
+        public string Colored { get; set; }
+        public string Cnxs { get; set; }
+        public string ErrorDesc { get; set; }
+        public string ChildPrea { get; set; }
+        public string ErrorDescCurrValue { get; set; }
+        public string ErrorDescIntmValue { get; set; }
+        public string ErrorDescRefValue { get; set; }
+        public string PsaEcheance { get; set; }
+        public string ProductNature { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string RefFca { get; set; }
+        public DateTime LatestEvent { get; set; }
+        public string EventType { get; set; }
+        public string PreviousApplicability { get; set; }
+        public DateTime CancelledAt { get; set; }
+        public string DecPsas { get; set; }
+    }
+}

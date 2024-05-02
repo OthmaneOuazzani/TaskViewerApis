@@ -35,5 +35,11 @@ namespace TaskViewerApis.Controllers
             return Ok(await _projectService.getProjectByProjectName(projectName));
         }
 
+        [HttpGet("ProjectsByUser")]
+        public async Task<IActionResult> GetProjectsByUser(string userId)
+        {
+            return Ok(await _projectService.getProjectsByUser(userId));
+        }
+
     }
 }

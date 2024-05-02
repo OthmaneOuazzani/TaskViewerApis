@@ -1,7 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using TaskViewer.Models;
-using TaskViewerApis.Helpers;
 using TaskViewerApis.Interfaces;
 
 namespace TaskViewerApis.Controllers

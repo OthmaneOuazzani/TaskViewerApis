@@ -19,7 +19,7 @@ builder.Services.AddSingleton<ITaskService>(taskService);
 
 var taskDetailServiceFactory = new TaskDetailServiceFactory();
 var taskDetailService = await taskDetailServiceFactory.CreateAsync();
-builder.Services.AddSingleton<ITaskDetailService>(taskDetailService);
+builder.Services.AddSingleton<ITaskDetailService>(taskDetailService); ;
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
