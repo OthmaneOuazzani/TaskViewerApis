@@ -6,7 +6,7 @@ public interface ITaskService
 {
     Task<IEnumerable<Taskk>> getTasks();
     Task<IEnumerable<Taskk>> getTasksByProject(string projectId);
-    Task<IEnumerable<Taskk>> getTasksByCreatedBY(string userId);
+    Task<IEnumerable<Taskk>> getTasksByCreatedBy(string userId);
     Task<Taskk> getTask(string id);
     Task<IEnumerable<Taskk>> getTasksByUser(string userId);
     Task<IEnumerable<Taskk>> getTasksByAffectedTo(string userId);

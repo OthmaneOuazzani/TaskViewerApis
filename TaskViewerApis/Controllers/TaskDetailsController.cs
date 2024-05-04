@@ -26,10 +26,10 @@ namespace TaskViewerApis.Controllers
             return Ok(await _taskDetailService.getTasksDetail());
         }
 
-        [HttpGet("detailsPage")]
+        [HttpGet("page")]
         public async Task<IActionResult> getTaskDetailsPage(int page)
         {
-            return Ok(await _taskDetailService.getTasksDetailPage(page));
+            return Ok(await _taskDetailService.getTasksDetailPage( page));
         }
 
         [HttpGet("detailsByProject")]

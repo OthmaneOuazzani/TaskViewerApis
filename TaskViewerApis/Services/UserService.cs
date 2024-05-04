@@ -4,40 +4,34 @@ using TaskViewerApis.Helpers;
 using TaskViewerApis.Interfaces;
 using System.Threading.Tasks;
 using Task = System.Threading.Tasks.Task;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace TaskViewerApis.Services
 {
     public class UserService : IUserService
     {
-        private readonly IEnumerable<User> users;
+        private readonly TaskViewerApis.Data.Context _context;
 
-        public UserService()
+        public UserService(TaskViewerApis.Data.Context context)
         {
-            users = LoadUsersAsync().GetAwaiter().GetResult();
-        }
-
-
-
-        private async Task<IEnumerable<User>> LoadUsersAsync()
-        {
-            string filePath = @"C:\Users\Othmane\source\repos\TaskViewerApis\TaskViewerApis\Data\W_PWT_USER_DATA_TABLE.json";
-            string jsonData = await File.ReadAllTextAsync(filePath);
-            return JsonConvert.DeserializeObject<IEnumerable<User>>(jsonData, new BoolConverter(), new DateConverter()) ?? Enumerable.Empty<User>();
+            _context = context;
         }
 
         public async Task<User> getUser(string id)
         {
-            return users.FirstOrDefault(u => u.PlmId == id);
+            return await _context.Users.FirstOrDefaultAsync(u => u.PlmId == id);
         }
 
         public async Task<IEnumerable<User>> getUsers()
         {
-            return await Task.FromResult(users);
+            return await _context.Users.ToListAsync();
         }
 
         public async Task<IEnumerable<User>> getUsersByProject(string projectId)
         {
-            var usersByProject = users.Where(u =>
+            var usersByProject = _context.Users.Where(u =>
                 u.Proj1 == projectId ||
                 u.Proj2 == projectId ||
                 u.Proj3 == projectId ||
@@ -49,13 +43,13 @@ namespace TaskViewerApis.Services
                 u.Proj9 == projectId ||
                 u.Proj10 == projectId);
 
-            return usersByProject;
+            return await usersByProject.ToListAsync();
         }
 
         public async Task<IEnumerable<User>> getColleagues(string userId)
         {
-            var user = users.FirstOrDefault(u => u.PlmId == userId);
-            var colleagues = users.Where(u =>
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.PlmId == userId);
+            var colleagues = _context.Users.Where(u =>
                 u.Proj1 == user.Proj1 ||
                 u.Proj2 == user.Proj2 ||
                 u.Proj3 == user.Proj3 ||
@@ -67,11 +61,35 @@ namespace TaskViewerApis.Services
                 u.Proj9 == user.Proj9 ||
                 u.Proj10 == user.Proj10);
 
-            return colleagues;
+            return await colleagues.ToListAsync();
         }
-
-
-
-
     }
 }
+
+//public UserService(TaskViewerApis.Data.Context context)
+//{
+//    _context = context;
+//    users = _context.Users.ToListAsync().GetAwaiter().GetResult();
+//    //LoadUsersAsync().GetAwaiter().GetResult();
+//}
+
+
+//private async Task LoadUsersAsync()
+//{
+//    string filePath = @"C:\Users\Othmane\source\repos\TaskViewerApis\TaskViewerApis\Data\W_PWT_USER_DATA_TABLE.json";
+//    string jsonData = await File.ReadAllTextAsync(filePath);
+//    var users = JsonConvert.DeserializeObject<IEnumerable<User>>(jsonData,new BoolConverter() ,new DateConverter()) ?? Enumerable.Empty<User>();
+
+//    foreach (var user in users)
+//    {
+//        // Clear the context's change tracker
+//        _context.ChangeTracker.Clear();
+
+
+//            _context.Users.Add(user);
+//            await _context.SaveChangesAsync();
+
+//    }
+//}
+
+

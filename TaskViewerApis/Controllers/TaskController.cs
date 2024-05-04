@@ -41,7 +41,7 @@ namespace TaskViewerApis.Controllers
         [HttpGet("TasksByCreatedBy")]
         public async Task<IActionResult> GetTasksByCreatedBy(string userId)
         {
-            return Ok(await _taskService.getTasksByCreatedBY(userId));
+            return Ok(await _taskService.getTasksByCreatedBy(userId));
         }
 
         [HttpGet("TasksByUser")]

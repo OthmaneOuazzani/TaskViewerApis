@@ -2,24 +2,34 @@ using TaskViewerApis.Interfaces;
 using TaskViewerApis.Services;
 using System;
 using System.Diagnostics;
+using TaskViewerApis.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IUserService, UserService>();
-builder.Services.AddSingleton<IProjectService, ProjectService>();
+builder.Services.AddDbContext<TaskViewerApis.Data.Context>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IProjectService, ProjectService>();
 
-var stopwatch = Stopwatch.StartNew();
 
-var taskServiceFactory = new TaskServiceFactory();
-var taskService = await taskServiceFactory.CreateAsync();
-builder.Services.AddSingleton<ITaskService>(taskService);
+//var taskServiceFactory = new TaskServiceFactory();
+//var taskService = await taskServiceFactory.CreateAsync();
+builder.Services.AddScoped<ITaskService, TaskService>();
 
-var taskDetailServiceFactory = new TaskDetailServiceFactory();
-var taskDetailService = await taskDetailServiceFactory.CreateAsync();
-builder.Services.AddSingleton<ITaskDetailService>(taskDetailService); ;
+using (var scope = builder.Services.BuildServiceProvider().CreateScope())
+{
+    var taskService = scope.ServiceProvider.GetRequiredService<ITaskService>() as TaskService;
+    await taskService?.InitializeAsync();
+}
+
+//var taskDetailServiceFactory = new TaskDetailServiceFactory();
+//var taskDetailService = await taskDetailServiceFactory.CreateAsync();
+builder.Services.AddScoped<ITaskDetailService, TaskDetailService>(); 
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -46,7 +56,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-stopwatch.Stop();
-Console.WriteLine($"Execution Time: {stopwatch.ElapsedMilliseconds}ms");
 app.Run();
-
