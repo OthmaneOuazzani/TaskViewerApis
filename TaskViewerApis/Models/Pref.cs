@@ -1,7 +1,10 @@
-﻿namespace TaskViewerApis.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TaskViewerApis.Models
 {
     public class Pref
     {
+        [Key]
         public string PlmId { get; set; }
         public bool Tokill { get; set; }
         public string LockFlag { get; set; }

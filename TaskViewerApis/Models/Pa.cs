@@ -1,14 +1,17 @@
-﻿namespace TaskViewerApis.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TaskViewerApis.Models
 {
     public class Pa
     {
-        public string ProjectName { get; set; }
+        [Key]
         public string PlmId { get; set; }
+        public string ProjectName { get; set; }
         public string LoadedCurrValue { get; set; }
         public string LoadedIntmValue { get; set; }
         public string LoadedRefValue { get; set; }
         public string LockFlag { get; set; }
-        public DateTime LockDate { get; set; }
+        public string LockDate { get; set; }
         public string LockUser { get; set; }
         public string DecPsa { get; set; }
         public string State { get; set; }
@@ -22,20 +25,20 @@
         public string Mcid { get; set; }
         public string Np { get; set; }
         public string PdefMonitored { get; set; }
-        public DateTime PdefSupplierDate { get; set; }
-        public DateTime PdefCommonDate { get; set; }
+        public string PdefSupplierDate { get; set; }
+        public string PdefCommonDate { get; set; }
         public string Pdef3DExist { get; set; }
         public string PdefLeader { get; set; }
         public string PdefIsCarryOver { get; set; }
-        public DateTime PdefValidateDate { get; set; }
+        public string PdefValidateDate { get; set; }
         public string PdefValidate { get; set; }
         public string PreaMonitored { get; set; }
-        public DateTime PreaSupplierDate { get; set; }
-        public DateTime PreaCommonDate { get; set; }
+        public string PreaSupplierDate { get; set; }
+        public string PreaCommonDate { get; set; }
         public string Prea3DExist { get; set; }
         public string PreaLeader { get; set; }
         public string PreaIsCarryOver { get; set; }
-        public DateTime PreaValidateDate { get; set; }
+        public string PreaValidateDate { get; set; }
         public string PreaValidate { get; set; }
         public string PdefPreaComments { get; set; }
         public string Exc { get; set; }
@@ -68,11 +71,11 @@
         public string ObjectId { get; set; }
         public string PLMComments { get; set; }
         public string Comments { get; set; }
-        public DateTime CreationDate { get; set; }
-        public DateTime ValidationDate { get; set; }
+        public string CreationDate { get; set; }
+        public string ValidationDate { get; set; }
         public string RequestedBy { get; set; }
         public string CreationValidation { get; set; }
-        public DateTime AvailabilityDate { get; set; }
+        public string AvailabilityDate { get; set; }
         public string NewApplicability1 { get; set; }
         public string NewApplicability2 { get; set; }
         public string MandatoryMatrixORValue { get; set; }
@@ -87,7 +90,7 @@
         public string ErrorSRefValue { get; set; }
         public string Tasks { get; set; }
         public string Selected { get; set; }
-        public DateTime LastModifDate { get; set; }
+        public string LastModifDate { get; set; }
         public string BelongsToPCurrValue { get; set; }
         public string BelongsToPIntmValue { get; set; }
         public string BelongsToPRefValue { get; set; }
@@ -102,8 +105,8 @@
         public string EC4DistributionSIntmValue { get; set; }
         public string EC4DistributionSRefValue { get; set; }
         public string HighestRevision { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime LastModifAt { get; set; }
+        public string CreatedAt { get; set; }
+        public string LastModifAt { get; set; }
         public string ConfigurationContext { get; set; }
         public string KPICalled { get; set; }
         public string WaitApp { get; set; }
@@ -136,10 +139,10 @@
         public string IsArchived { get; set; }
         public string EC4Scripting { get; set; }
         public string ColorRefs { get; set; }
-        public DateTime LatestEvent { get; set; }
+        public string LatestEvent { get; set; }
         public string EventType { get; set; }
         public string PreviousEffectivity { get; set; }
-        public DateTime CancelledAt { get; set; }
+        public string CancelledAt { get; set; }
         public string RequestedRefs { get; set; }
     }
 }

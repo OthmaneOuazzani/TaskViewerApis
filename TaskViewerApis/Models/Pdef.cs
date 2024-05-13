@@ -1,9 +1,12 @@
-﻿namespace TaskViewerApis.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TaskViewerApis.Models
 {
     public class Pdef
     {
         public string ProjectName { get; set; }
         public int LocalIndex { get; set; }
+        [Key]
         public string PlmId { get; set; }
         public string LoadedCurrValue { get; set; }
         public string LoadedIntmValue { get; set; }

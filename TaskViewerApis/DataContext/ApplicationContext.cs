@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskViewer.Models;
+using TaskViewerApis.Models;
 using Task = TaskViewer.Models.Task;
 
 namespace TaskViewerApis.Data
@@ -14,6 +15,14 @@ namespace TaskViewerApis.Data
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<TaskDetail> TaskDetails { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Pa> Pas { get; set; }
+        public DbSet<Pdef> Pdefs { get; set; }
+        public DbSet<Prea> Preas { get; set; }
+        public DbSet<Pref> Pref { get; set; }
+
+
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -25,6 +34,7 @@ namespace TaskViewerApis.Data
             modelBuilder.Entity<Task>().HasKey(p => p.PlmId);
             modelBuilder.Entity<TaskDetail>().HasKey(p => p.PlmId);
             modelBuilder.Entity<User>().HasKey(p => p.PlmId);
+            modelBuilder.Entity<Pa>().HasKey(p => p.PlmId);
         }
     }
 }

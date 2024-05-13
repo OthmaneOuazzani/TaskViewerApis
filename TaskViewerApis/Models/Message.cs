@@ -1,7 +1,10 @@
-﻿namespace TaskViewerApis.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TaskViewerApis.Models
 {
     public class Message
     {
+        [Key]
         public string PLMID { get; set; }
         public string LASTTOUCH { get; set; }
         public bool TOKILL { get; set; }
