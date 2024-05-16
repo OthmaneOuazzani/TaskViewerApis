@@ -56,6 +56,12 @@ namespace TaskViewerApis.Controllers
             return Ok(await _taskService.getTasksByAffectedTo(userId));
         }
 
+        [HttpGet("TasksByProjectIdAndCreatedBy")]
+        public async Task<IActionResult> GetTasksByProjectIdAndCreatedBy(string projectId, string userId)
+        {
+            return Ok(await _taskService.getTasksByProjectIdAndCreatedBy(projectId, userId));
+        }
+
 
 
     }

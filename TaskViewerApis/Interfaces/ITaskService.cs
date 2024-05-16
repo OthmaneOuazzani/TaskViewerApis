@@ -10,6 +10,7 @@ public interface ITaskService
     Task<Taskk> getTask(string id);
     Task<IEnumerable<Taskk>> getTasksByUser(string userId);
     Task<IEnumerable<Taskk>> getTasksByAffectedTo(string userId);
+    Task<IEnumerable<Taskk>> getTasksByProjectIdAndCreatedBy(string projectId, string userId);
 
 
 

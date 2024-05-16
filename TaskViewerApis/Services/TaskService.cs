@@ -32,6 +32,11 @@ namespace TaskViewerApis.Services
             return await _context.Tasks.ToListAsync();
         }
 
+        public async Task<IEnumerable<Taskk>> getTasksByProjectIdAndCreatedBy(string projectId, string userId)
+        {
+            return await _context.Tasks.Where(t => t.ProjectName == projectId && t.CreatedBy == userId).ToListAsync();
+        }
+
         //public async Task<IEnumerable<Taskk>> getTasks()
         //{
         //    return await System.Threading.Tasks.Task.FromResult(tasks);
