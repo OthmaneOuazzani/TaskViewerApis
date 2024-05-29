@@ -4,6 +4,7 @@ using System;
 using System.Diagnostics;
 using TaskViewerApis.Data;
 using Microsoft.EntityFrameworkCore;
+using TaskViewerApis.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddDbContext<TaskViewerApis.Data.Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
+builder.Services.AddScoped<IErrorService, ErrorService>();
 
 
 //var taskServiceFactory = new TaskServiceFactory();
@@ -30,7 +32,7 @@ using (var scope = builder.Services.BuildServiceProvider().CreateScope())
 //var taskDetailService = await taskDetailServiceFactory.CreateAsync();
 builder.Services.AddScoped<ITaskDetailService, TaskDetailService>(); 
 
-
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

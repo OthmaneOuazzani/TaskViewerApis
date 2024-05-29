@@ -5,7 +5,7 @@ namespace TaskViewer.Models
     public class Task
     {
         [Key]
-        public string? PlmId { get; set; }
+        public string PlmId { get; set; }
         public string? ProjectName { get; set; }
         public int? LocalIndex { get; set; }
         public string? LockFlag { get; set; }

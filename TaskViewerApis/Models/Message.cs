@@ -5,28 +5,28 @@ namespace TaskViewerApis.Models
     public class Message
     {
         [Key]
-        public string PLMID { get; set; }
-        public string LASTTOUCH { get; set; }
-        public bool TOKILL { get; set; }
-        public string OBJECTPLMID { get; set; }
-        public string OBJECTTYPE { get; set; }
-        public string MESSAGETXT { get; set; }
-        public string MESSAGECOLOR { get; set; }
-        public string MESSAGETYPE { get; set; }
-        public string MESSAGETYPE2 { get; set; }
-        public string WRITTENBY { get; set; }
-        public string MESSAGEDESTINATION { get; set; }
-        public string TITLE { get; set; }
-        public DateTime CREATEDAT { get; set; }
-        public DateTime MODIFIEDAT { get; set; }
-        public int PICTURECOUNT { get; set; }
-        public string READBY { get; set; }
-        public string PROJECTNAME { get; set; }
-        public int TWEETLENMAX { get; set; }
-        public string LASTMESSAGE { get; set; }
-        public DateTime LOCKDATE { get; set; }
-        public string LOCKFLAG { get; set; }
-        public string LOCKUSER { get; set; }
-        public DateTime CANCELLEDAT { get; set; }
+        public string PlmId { get; set; }
+        public string? LastTouch { get; set; }
+        public bool? ToKill { get; set; }
+        public string? ObjectPlmid { get; set; }
+        public string? ObjectType { get; set; }
+        public string? MessageTxt { get; set; }
+        public string? MessageColor { get; set; }
+        public string? MessageType { get; set; }
+        public string? MessageType2 { get; set; }
+        public string? WrittenBy { get; set; }
+        public string? MessageDestination { get; set; }
+        public string? Title { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? ModifiedAt { get; set; }
+        public int? PictureCount { get; set; }
+        public string? ReadBy { get; set; }
+        public string? ProjectName { get; set; }
+        public int? TweetLenMax { get; set; }
+        public string? LastMessage { get; set; }
+        public DateTime? LockDate { get; set; }
+        public string? LockFlag { get; set; }
+        public string? LockUser { get; set; }
+        public DateTime? CancelledAt { get; set; }
     }
 }

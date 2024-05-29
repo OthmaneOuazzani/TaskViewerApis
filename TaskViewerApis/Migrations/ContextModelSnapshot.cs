@@ -1010,95 +1010,322 @@ namespace TaskViewerApis.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("TaskViewerApis.Models.Message", b =>
+            modelBuilder.Entity("TaskViewerApis.Models.Error", b =>
                 {
-                    b.Property<string>("PLMID")
+                    b.Property<string>("PlmId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<DateTime>("CANCELLEDAT")
+                    b.Property<string>("Actors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Contributors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CorrectiveAction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Explanation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastTouch")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RelatedObject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tokill")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UseAsKpiFor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Workshop")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PlmId");
+
+                    b.ToTable("Errors");
+                });
+
+            modelBuilder.Entity("TaskViewerApis.Models.Message", b =>
+                {
+                    b.Property<string>("PlmId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("CancelledAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CREATEDAT")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LASTMESSAGE")
-                        .IsRequired()
+                    b.Property<string>("LastMessage")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LASTTOUCH")
-                        .IsRequired()
+                    b.Property<string>("LastTouch")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("LOCKDATE")
+                    b.Property<DateTime?>("LockDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("LOCKFLAG")
-                        .IsRequired()
+                    b.Property<string>("LockFlag")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LOCKUSER")
-                        .IsRequired()
+                    b.Property<string>("LockUser")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MESSAGECOLOR")
-                        .IsRequired()
+                    b.Property<string>("MessageColor")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MESSAGEDESTINATION")
-                        .IsRequired()
+                    b.Property<string>("MessageDestination")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MESSAGETXT")
-                        .IsRequired()
+                    b.Property<string>("MessageTxt")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MESSAGETYPE")
-                        .IsRequired()
+                    b.Property<string>("MessageType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("MESSAGETYPE2")
-                        .IsRequired()
+                    b.Property<string>("MessageType2")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("MODIFIEDAT")
+                    b.Property<DateTime?>("ModifiedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("OBJECTPLMID")
-                        .IsRequired()
+                    b.Property<string>("ObjectPlmid")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OBJECTTYPE")
-                        .IsRequired()
+                    b.Property<string>("ObjectType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PICTURECOUNT")
+                    b.Property<int?>("PictureCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("PROJECTNAME")
-                        .IsRequired()
+                    b.Property<string>("ProjectName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("READBY")
-                        .IsRequired()
+                    b.Property<string>("ReadBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TITLE")
-                        .IsRequired()
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("TOKILL")
+                    b.Property<bool?>("ToKill")
                         .HasColumnType("bit");
 
-                    b.Property<int>("TWEETLENMAX")
+                    b.Property<int?>("TweetLenMax")
                         .HasColumnType("int");
 
-                    b.Property<string>("WRITTENBY")
-                        .IsRequired()
+                    b.Property<string>("WrittenBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PLMID");
+                    b.HasKey("PlmId");
 
                     b.ToTable("Messages");
+                });
+
+            modelBuilder.Entity("TaskViewerApis.Models.Np", b =>
+                {
+                    b.Property<string>("PlmId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProjectName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("BaseVeh")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BaseVehicleInNp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CancelledAt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChildpaCurrvalue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChildpaIntmvalue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChildpaRefvalue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfigurationContext")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedAt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreationDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreationValidation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Decpsa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DnaBumpsCount")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DnaCombinationsCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DnaErrors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DnaHolesCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DnaIsUptodate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DnaMaxCombines")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DnaOtherErrorsCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("DnaTaskAction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DnaTaskDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DnaTaskRcd")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DnaTaskRcdFeedback")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Domain")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EffRestriction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EffRestrictionIsUpdated")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ErrorDesc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ErrordescCurrvalue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ErrordescIntmvalue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ErrordescRefvalue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EventType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Flag")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImplementationArea")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IsDnaCombinationsFull")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Kb01Pconfs")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("KpiCalled")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastModifAt")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastTouch")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LatestEvent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LockDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LockFlag")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LockUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModuleInNp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ModuleTypeInNp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PortraitRobot")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PowertrainInNp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PresentinCurrvalue")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PresentinIntmvalue")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PresentinRefvalue")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PreviousRestriction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrfMetierSpec")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RequestedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TaskLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tasks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tokill")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ValidationDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WinAttachement")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("XxErCv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("XxErIv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("XxErRv")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PlmId", "ProjectName");
+
+                    b.ToTable("Nps");
                 });
 
             modelBuilder.Entity("TaskViewerApis.Models.Pa", b =>
@@ -1107,1111 +1334,422 @@ namespace TaskViewerApis.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ASolutionOfInterchangeExists")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AffectedPerson")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("AvailabilityDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BelongsToPCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BelongsToPIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BelongsToPRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CNXCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CNXIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CNXRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CancelledAt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChildCNXCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChildCNXIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChildCNXRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChildPDEFCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChildPDEFIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ChildPDEFRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CodeAchat")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ColorRefs")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Comments")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConfigurationContext")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedAt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreationDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreationValidation")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("DNAErrorDesc")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("DNAErrors")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DecPsa")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4Distribution")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4DistributionIsNew")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4DistributionPrevious")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4DistributionSCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4DistributionSIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4DistributionSRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4Revision")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EC4Scripting")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ecr")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("EffectivityCur")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("EffectivityIsUpdated")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EffectivityOrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EffectivitySimilarTo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EffectivityUserValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ErrorDesc")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ErrorDescSCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ErrorDescSIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ErrorDescSRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ErrorSCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ErrorSIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ErrorSRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EventType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Exc")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilleCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilleIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FamilleRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FatherNP")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Flag")
+                    b.Property<int?>("Flag")
                         .HasColumnType("int");
 
                     b.Property<string>("HighestRevision")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IsArchived")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("KPICalled")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LAIDSCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LAIDSIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LAIDSRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LINKSCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LINKSIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LINKSRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LaCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LaIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LaRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifAt")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastModifDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastTouch")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LatestEvent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LoadedCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LoadedIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LoadedRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LockDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LockFlag")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LockUser")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MCMatrixName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MandatoryMatrixORValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MandatoryMatrixUserValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("MassObjectiveCurrValue")
+                    b.Property<decimal?>("MassObjectiveCurrValue")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("MassObjectiveIntmValue")
+                    b.Property<decimal?>("MassObjectiveIntmValue")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<decimal>("MassObjectiveRefValue")
+                    b.Property<decimal?>("MassObjectiveRefValue")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("MatrixState")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mcid")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MissingPDEFInPCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MissingPDEFInPIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MissingPDEFInPRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NewApplicability1")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NewApplicability2")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Np")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ObjectId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Owner")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PDEFCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PDEFIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PDEFRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PLMComments")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PartialGroup")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Pdef3DExist")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefCommonDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefIsCarryOver")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefLeader")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefMonitored")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefPreaComments")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefSupplierDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefValidate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PdefValidateDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Prea3DExist")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreaCommonDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreaIsCarryOver")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreaLeader")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreaMonitored")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreaSupplierDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreaValidate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreaValidateDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PreviousEffectivity")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProjectName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProposedUseCase")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RequestedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RequestedRefs")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Selected")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("State")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StateOfLinkLowInterchange")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StateSCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StateSIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StateSRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TaskLink")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tasks")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TechnicalAttributesCurrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TechnicalAttributesIntmValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TechnicalAttributesRefValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ToKill")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UseCaseAssociatedTo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ValidationDate")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("VarianceSchemaOrValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("VarianceSchemaUserValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WaitApp")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("WorkingPackage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PlmId");
 
                     b.ToTable("Pas");
-                });
-
-            modelBuilder.Entity("TaskViewerApis.Models.Pdef", b =>
-                {
-                    b.Property<string>("PlmId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Applicability")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Avancement")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BelongsToContext")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("BelongsToPConfCurrValue")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("BelongsToPConfHistory")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("BelongsToPConfIntmValue")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("BelongsToPConfRefValue")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("CancelledAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ChildPrea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Cnxs")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Colored")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConfigurationContextes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("CountOfUses")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DecPsa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DecPsas")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DesignationEn")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DesignationFr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DesignerPrefered")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDesc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDescCurrValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDescIntmValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDescRefValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsCurrValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsHistory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsIntmValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsRefValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Flag")
-                        .HasColumnType("int");
-
-                    b.Property<string>("GbomMaturity")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HighestRevision")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("History")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("KpiCalled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModifAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastTouch")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LatestEvent")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LoadedCurrValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoadedHistory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoadedIntmValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoadedRefValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("LocalIndex")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("LockDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LockFlag")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LockUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Macsi")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("MassEstimatedCurrValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("MassEstimatedHistory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("MassEstimatedIntmValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("MassEstimatedRefValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("MassType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Owner")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pas")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pdd")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Prea")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PreviousApplicability")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProductNature")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProjectName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PsaDeadline")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PsaEcheance")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("RefFca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RefPsa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReleaseDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tasks")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Tokill")
-                        .HasColumnType("bit");
-
-                    b.HasKey("PlmId");
-
-                    b.ToTable("Pdefs");
-                });
-
-            modelBuilder.Entity("TaskViewerApis.Models.Prea", b =>
-                {
-                    b.Property<string>("PlmId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Applicability")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Avancement")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("BelongsToContextR")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("BelongsToPConfCurrValue")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("BelongsToPConfIntmValue")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("BelongsToPConfRefValue")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("CancelledAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ConfigurationContextes")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("CountOfUses")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DecPsa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DesignationEn")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DesignationFr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("DesignerPrefered")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDesc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDescCurrValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDescIntmValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorDescRefValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsCurrValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsHistory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsIntmValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ErrorsRefValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EventType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FatherPdef")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Flag")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("HighestRevision")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("History")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("KpiCalled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastModifAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LastTouch")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("LatestEvent")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LoadedCurrValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoadedHistory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoadedIntmValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LoadedRefValue")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("LocalIndex")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("LockDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LockFlag")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LockUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("MassCurrValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("MassHistory")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("MassIntmValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<decimal>("MassRefValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Owner")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pas")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pdef")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PreviousApplicability")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ProjectName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Psadeadline")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal>("Quantity")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("RefPsa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tasks")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Tokill")
-                        .HasColumnType("bit");
-
-                    b.HasKey("PlmId");
-
-                    b.ToTable("Preas");
-                });
-
-            modelBuilder.Entity("TaskViewerApis.Models.Pref", b =>
-                {
-                    b.Property<string>("PlmId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("CancelledAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ColorCode2")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ColorCode3")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ColorDesignation")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ColorReference")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DecPsaList")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Designation")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsColored")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsNeutral")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LockDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LockFlag")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LockUser")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NeutralPlmId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ObjectId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PartnersRef")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PdefPlmId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RefPsa")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RefPsaRev")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Tokill")
-                        .HasColumnType("bit");
-
-                    b.HasKey("PlmId");
-
-                    b.ToTable("Pref");
                 });
 #pragma warning restore 612, 618
         }

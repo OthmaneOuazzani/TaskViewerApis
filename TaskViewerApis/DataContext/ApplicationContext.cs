@@ -17,9 +17,9 @@ namespace TaskViewerApis.Data
         public DbSet<TaskDetail> TaskDetails { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Pa> Pas { get; set; }
-        public DbSet<Pdef> Pdefs { get; set; }
-        public DbSet<Prea> Preas { get; set; }
-        public DbSet<Pref> Pref { get; set; }
+        public DbSet<Error> Errors { get; set; }
+        public DbSet<Np> Nps { get; set; }    
+
 
 
 
@@ -35,6 +35,11 @@ namespace TaskViewerApis.Data
             modelBuilder.Entity<TaskDetail>().HasKey(p => p.PlmId);
             modelBuilder.Entity<User>().HasKey(p => p.PlmId);
             modelBuilder.Entity<Pa>().HasKey(p => p.PlmId);
+            modelBuilder.Entity<Error>().HasKey(p => p.PlmId);
+            modelBuilder.Entity<Message>().HasKey(p => p.PlmId);
+            modelBuilder.Entity<Np>().HasKey(p => new { p.PlmId, p.ProjectName });
+
+
         }
     }
 }
