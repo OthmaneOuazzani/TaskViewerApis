@@ -16,6 +16,7 @@ builder.Services.AddDbContext<TaskViewerApis.Data.Context>(options =>
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IErrorService, ErrorService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 
 
 //var taskServiceFactory = new TaskServiceFactory();

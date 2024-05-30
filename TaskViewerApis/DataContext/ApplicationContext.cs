@@ -18,7 +18,9 @@ namespace TaskViewerApis.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<Pa> Pas { get; set; }
         public DbSet<Error> Errors { get; set; }
-        public DbSet<Np> Nps { get; set; }    
+        public DbSet<Np> Nps { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+
 
 
 
@@ -38,6 +40,7 @@ namespace TaskViewerApis.Data
             modelBuilder.Entity<Error>().HasKey(p => p.PlmId);
             modelBuilder.Entity<Message>().HasKey(p => p.PlmId);
             modelBuilder.Entity<Np>().HasKey(p => new { p.PlmId, p.ProjectName });
+            modelBuilder.Entity<Notification>().HasKey(p => p.Id);
 
 
         }

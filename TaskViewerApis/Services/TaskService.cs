@@ -3,6 +3,7 @@ using TaskViewerApis.Interfaces;
 using Taskk = TaskViewer.Models.Task;
 using Task = System.Threading.Tasks.Task;
 using Microsoft.EntityFrameworkCore;
+using TaskViewerApis.Models;
 
 namespace TaskViewerApis.Services
 {
@@ -60,6 +61,53 @@ namespace TaskViewerApis.Services
         public async Task<IEnumerable<Taskk>> getTasksByAffectedTo(string userId)
         {
             return await _context.Tasks.Where(t => t.AffectedTo == userId).ToListAsync();
+        }
+
+        public async Task updateValidationStatus(string taskId, string newStatus, string manager)
+        {
+            var task = await getTask(taskId);
+            if (task == null) throw new Exception("Task not found");
+
+            task.ValidationStatus = newStatus;
+            switch (newStatus)
+            {
+                case "Validated":
+                    task.ValidatedBy = manager;
+                    task.ValidatedAt = DateTime.Now;
+                    break;
+                case "Rejected":
+                    task.RejectedBy = manager;
+                    task.RejectedAt = DateTime.Now;
+                    break;
+
+                case "Completed":
+                    task.CompletedBy = manager;
+                    task.CompletedAt = DateTime.Now;
+                    break;
+                case 
+                    "Archived":
+                    task.IsArchived = true;
+                    break;
+
+            }
+
+
+            _context.Tasks.Update(task);
+            await _context.SaveChangesAsync();
+
+            var notification = new Notification
+            {
+                UserId = task.CreatedBy,
+                TaskId = task.PlmId,
+                Description = $"Validation status changed to {newStatus}",
+                Time = DateTime.Now,
+                IsSeen = false,
+                Status = newStatus,
+                ChangedBy = manager
+            };
+
+            _context.Notifications.Add(notification);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -62,6 +62,20 @@ namespace TaskViewerApis.Controllers
             return Ok(await _taskService.getTasksByProjectIdAndCreatedBy(projectId, userId));
         }
 
+        [HttpPut("UpdateValidationStatus")]
+        public async Task<IActionResult> UpdateValidationStatus(string id, string newStatus, string manager)
+        {
+            try
+            {
+                await _taskService.updateValidationStatus(id, newStatus, manager);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
 
 
     }
