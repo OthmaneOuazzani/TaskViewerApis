@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using TaskViewer.Models;
 using TaskViewerApis.Interfaces;
 
 namespace TaskViewerApis.Controllers
@@ -38,6 +39,12 @@ namespace TaskViewerApis.Controllers
         public async Task<IActionResult> GetColleagues(string userId)
         {
             return Ok(await _userService.getColleagues(userId));
+        }
+
+        [HttpPut("UpdateUser")]
+        public async Task<IActionResult> UpdateUser(User user, string id)
+        {
+            return Ok(await _userService.updateUser(user, id));
         }
     }
     }

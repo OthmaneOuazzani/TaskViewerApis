@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using TaskViewerApis.Dtos;
 using TaskViewerApis.Models;
 
 namespace TaskViewerApis.Helpers
@@ -9,6 +8,7 @@ namespace TaskViewerApis.Helpers
         public MappingProfile()
         {
             CreateMap<Error, Error>();
+            CreateMap<TaskViewer.Models.User, TaskViewer.Models.User>();
         }
     }
 }

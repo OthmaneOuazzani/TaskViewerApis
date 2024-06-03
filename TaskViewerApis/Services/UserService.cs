@@ -7,6 +7,7 @@ using Task = System.Threading.Tasks.Task;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Collections.Generic;
+using AutoMapper;
 
 namespace TaskViewerApis.Services
 {
@@ -14,9 +15,13 @@ namespace TaskViewerApis.Services
     {
         private readonly TaskViewerApis.Data.Context _context;
 
-        public UserService(TaskViewerApis.Data.Context context)
+        private readonly IMapper _mapper;
+
+
+        public UserService(TaskViewerApis.Data.Context context , IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         public async Task<User> getUser(string id)
@@ -62,6 +67,22 @@ namespace TaskViewerApis.Services
                 u.Proj10 == user.Proj10);
 
             return await colleagues.ToListAsync();
+        }
+
+        public async Task<User> updateUser(User user, string id)
+        {
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.PlmId == id);
+
+            if (existingUser == null)
+            {
+                return null;
+            }
+
+            _mapper.Map(user, existingUser);
+
+            await _context.SaveChangesAsync();
+
+            return existingUser;
         }
     }
 }

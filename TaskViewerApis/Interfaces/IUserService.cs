@@ -10,6 +10,7 @@ namespace TaskViewerApis.Interfaces
         Task<User> getUser(string id);
         Task<IEnumerable<User>> getUsersByProject(string projetctId);
         Task<IEnumerable<User>> getColleagues(string userId);
+        Task<User> updateUser(User user , string id);
 
     }
 }
