@@ -20,6 +20,7 @@ namespace TaskViewerApis.Data
         public DbSet<Error> Errors { get; set; }
         public DbSet<Np> Nps { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
 
 
 
@@ -28,7 +29,7 @@ namespace TaskViewerApis.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PowerTools;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
+            //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=PowerTools;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -41,6 +42,7 @@ namespace TaskViewerApis.Data
             modelBuilder.Entity<Message>().HasKey(p => p.PlmId);
             modelBuilder.Entity<Np>().HasKey(p => new { p.PlmId, p.ProjectName });
             modelBuilder.Entity<Notification>().HasKey(p => p.Id);
+            modelBuilder.Entity<Rating>().HasKey(p => p.id);
 
 
         }
