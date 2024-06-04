@@ -1,10 +1,11 @@
-using TaskViewerApis.Interfaces;
+﻿using TaskViewerApis.Interfaces;
 using TaskViewerApis.Services;
 using System;
 using System.Diagnostics;
 using TaskViewerApis.Data;
 using Microsoft.EntityFrameworkCore;
 using TaskViewerApis.Helpers;
+using TaskViewerApis.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IErrorService, ErrorService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<IRatingService, RatingService>();
 
 
 //var taskServiceFactory = new TaskServiceFactory();
