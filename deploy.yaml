@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   name: taskviewerapi-deployment
 spec:
-  replicas: 3
+  replicas: 3  # Specifies the number of instances
   selector:
     matchLabels:
-      app: taskviewerapi
+      app: taskviewerapi  # This should match the label in the pod template
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: taskviewerapi
-        image: othmaneouazzani/taskviewerapis:latest
-        ports:
-        - containerPort: 7216
+        image: othmaneouazzani/taskviewerapis:latest  # Use your specific Docker image
         imagePullPolicy: Always
+        ports:
+        - containerPort: 7216  # The port the container is listening on
