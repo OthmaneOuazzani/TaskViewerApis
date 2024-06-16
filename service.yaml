@@ -1,3 +1,4 @@
+# backend-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -6,8 +7,8 @@ spec:
   selector:
     app: taskviewerapi
   ports:
-  - protocol: TCP
-    port: 7216
-    targetPort: 7216
-    nodePort: 30001  # Choose a port from allowed range (30000-32767)
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 30216
   type: NodePort
