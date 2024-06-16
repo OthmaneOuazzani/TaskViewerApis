@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taskviewerapi-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: taskviewerapi
+  template:
+    metadata:
+      labels:
+        app: taskviewerapi
+    spec:
+      containers:
+      - name: taskviewerapi
+        image: othmaneouazzani/taskviewerapis:latest
+        ports:
+        - containerPort: 7216
+        imagePullPolicy: Always
