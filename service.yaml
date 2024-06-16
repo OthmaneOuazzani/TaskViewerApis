@@ -4,9 +4,9 @@ metadata:
   name: taskviewerapi-service
 spec:
   selector:
-    app: taskviewerapi
+    app: taskviewerapi  # This should match the labels given to the pods via Deployment
   ports:
   - protocol: TCP
-    port: 7216
-    targetPort: 7216
-  type: ClusterIP
+    port: 7216  # The port that the service exposes
+    targetPort: 7216  # The container port to which the service will send traffic
+  type: ClusterIP  # Exposes the service on a cluster-internal IP
