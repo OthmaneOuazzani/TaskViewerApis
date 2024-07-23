@@ -19,6 +19,7 @@ builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IErrorService, ErrorService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IRatingService, RatingService>();
+builder.Services.AddScoped<ILaService, LaService>();
 
 
 //var taskServiceFactory = new TaskServiceFactory();
