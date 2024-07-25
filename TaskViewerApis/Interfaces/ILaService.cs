@@ -1,4 +1,5 @@
 ﻿using TaskViewer.Models;
+using TaskViewerApis.Helpers;
 using TaskViewerApis.Models;
 
 namespace TaskViewerApis.Interfaces
@@ -7,7 +8,7 @@ namespace TaskViewerApis.Interfaces
     {
         Task<IEnumerable<La>> GetAllLas();
         Task<La> GetLa(string plmId);
-        Task<IEnumerable<La>> GetLaPage(int page, int pageSize);
+        Task<PaginatedResponse<La>> GetLaPage(int page, int pageSize);
 
     }
 }

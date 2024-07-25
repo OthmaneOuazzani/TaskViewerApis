@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TaskViewerApis.Helpers;
 using TaskViewerApis.Interfaces;
 using TaskViewerApis.Models;
 
@@ -25,13 +26,28 @@ namespace TaskViewerApis.Services
             return await _context.Las.FirstOrDefaultAsync(l => l.PlmId == plmId);
         }
 
-        public async Task<IEnumerable<La>> GetLaPage(int page = 1 , int pageSize =15)
-        {
-            int startIndex = (page - 1) * pageSize;
-            int endIndex = Math.Min(startIndex + pageSize, await _context.Las.CountAsync());
-            List<La> las = await _context.Las.Skip(startIndex).Take(endIndex - startIndex).ToListAsync();
+        //public async Task<IEnumerable<La>> GetLaPage(int page = 1 , int pageSize =15)
+        //{
+        //    int startIndex = (page - 1) * pageSize;
+        //    int endIndex = Math.Min(startIndex + pageSize, await _context.Las.CountAsync());
+        //    List<La> las = await _context.Las.Skip(startIndex).Take(endIndex - startIndex).ToListAsync();
 
-            return las;
-        }   
+        //    return las;
+        //}   
+
+        public async Task<PaginatedResponse<La>> GetLaPage(int page, int pageSize)
+        {
+            int totalCount = await _context.Las.CountAsync();
+            List<La> items = await _context.Las
+                                            .Skip((page - 1) * pageSize)
+                                            .Take(pageSize)
+                                            .ToListAsync();
+
+            return new PaginatedResponse<La>
+            {
+                Items = items,
+                TotalCount = totalCount
+            };
+        }
     }
 }
