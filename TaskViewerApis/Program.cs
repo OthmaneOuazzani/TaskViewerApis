@@ -19,10 +19,8 @@ builder.Services.AddScoped<IProjectService, ProjectService>();
 builder.Services.AddScoped<IErrorService, ErrorService>();
 builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IRatingService, RatingService>();
+builder.Services.AddScoped<ILaService, LaService>();
 
-
-//var taskServiceFactory = new TaskServiceFactory();
-//var taskService = await taskServiceFactory.CreateAsync();
 builder.Services.AddScoped<ITaskService, TaskService>();
 
 using (var scope = builder.Services.BuildServiceProvider().CreateScope())
@@ -31,8 +29,7 @@ using (var scope = builder.Services.BuildServiceProvider().CreateScope())
     await taskService?.InitializeAsync();
 }
 
-//var taskDetailServiceFactory = new TaskDetailServiceFactory();
-//var taskDetailService = await taskDetailServiceFactory.CreateAsync();
+
 builder.Services.AddScoped<ITaskDetailService, TaskDetailService>(); 
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));

@@ -22,6 +22,13 @@ namespace TaskViewerApis.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> GetRatings()
+        {
+            return Ok(await _ratingService.getRatings());
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateRating([FromBody] Rating rating)
         {

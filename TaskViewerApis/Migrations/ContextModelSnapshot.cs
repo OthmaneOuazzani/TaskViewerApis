@@ -1056,6 +1056,193 @@ namespace TaskViewerApis.Migrations
                     b.ToTable("Errors");
                 });
 
+            modelBuilder.Entity("TaskViewerApis.Models.La", b =>
+                {
+                    b.Property<string>("PlmId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("AgreedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ApprovedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("AssignedPerson")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Avancement")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CancelledAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Cnx")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Comments")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CompletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Context")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContextObjectId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ContextType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CoterAl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cotert")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("CustomerDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("DecPsa")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeliverableType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EcoId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EcoState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Errors")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpectedConf")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpectedConfTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FunctionalPackage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastTouch")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Leader")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkedDocument")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LockDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LockFlag")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LockUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ManagementState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Metier")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ObjectId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectNameList")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectNames")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectOwnership")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectPackage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectSpace")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectSpaceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectSpaceObjectId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ReleasedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ReviewedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("SatisfiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SatisfiedByEco")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SatisfiedByEcoState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SatisfiedByObjectId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SatisfiedByRevision")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SatisfiedByState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SatisfiedByType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Service")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Supervisor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("SupplierDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TaskLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Timing")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ToDoBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ToKill")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ValidatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("PlmId");
+
+                    b.ToTable("Las");
+                });
+
             modelBuilder.Entity("TaskViewerApis.Models.Message", b =>
                 {
                     b.Property<string>("PlmId")
