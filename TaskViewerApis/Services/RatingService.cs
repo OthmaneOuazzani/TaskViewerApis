@@ -1,9 +1,7 @@
-﻿using AutoMapper;
+﻿
 using TaskViewerApis.Interfaces;
 using TaskViewerApis.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.OpenApi;
+using Microsoft.EntityFrameworkCore;
 
 namespace TaskViewerApis.Services
 {
@@ -15,6 +13,13 @@ namespace TaskViewerApis.Services
         public RatingService(TaskViewerApis.Data.Context context)
         {
             _context = context;
+        }
+
+        public async Task<IEnumerable<Rating>> getRatings()
+        {
+            {
+                return await _context.Ratings.ToListAsync();
+            }
         }
 
         public async Task<Rating> saveRating(Rating rating)
